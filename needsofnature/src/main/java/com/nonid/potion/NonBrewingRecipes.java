@@ -19,6 +19,7 @@ import java.util.LinkedHashSet;
 import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.potion.Potions;
 import net.minecraft.util.Identifier;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.TagKey;
@@ -49,6 +50,11 @@ public final class NonBrewingRecipes {
             }
         BrewingRecipeRegistry.registerPotionRecipe(NonPotions.FERTILITY_INCREASER, Items.GLOWSTONE_DUST, NonPotions.FERTILITY_INCREASER_II);
         BrewingRecipeRegistry.registerPotionRecipe(NonPotions.FERTILITY_INCREASER, Items.REDSTONE, NonPotions.FERTILITY_INCREASER_LONG);
+        BrewingRecipeRegistry.registerPotionRecipe(Potions.WATER, Items.SLIME_BALL, NonPotions.FILLED);
+        BrewingRecipeRegistry.registerPotionRecipe(NonPotions.FILLED, Items.GLOWSTONE_DUST, NonPotions.FILLED_III);
+        BrewingRecipeRegistry.registerPotionRecipe(NonPotions.LIQUID, Items.PRISMARINE_SHARD, NonPotions.CHARGED);
+        BrewingRecipeRegistry.registerPotionRecipe(NonPotions.CHARGED, Items.GLOWSTONE_DUST, NonPotions.CHARGED_III);
+        BrewingRecipeRegistry.registerPotionRecipe(NonPotions.LIQUID, Items.SCUTE, NonPotions.APHRODISIAC);
+        BrewingRecipeRegistry.registerPotionRecipe(NonPotions.APHRODISIAC, Items.GLOWSTONE_DUST, NonPotions.APHRODISIAC_III);
     }
 }
-

@@ -43,6 +43,8 @@ public final class NonPotions {
     private static final int FERTILITY_BASE_DURATION_TICKS = 9600;
     private static final int FERTILITY_STRONG_DURATION_TICKS = 4800;
     private static final int FERTILITY_LONG_DURATION_TICKS = 19200;
+    private static final int SPECIAL_BASE_DURATION_TICKS = 7200;
+    private static final int SPECIAL_STRONG_DURATION_TICKS = 3600;
     public static final Potion LIQUID = NonPotions.register("liquid", new Potion());
     public static final Potion ENERGY = NonPotions.register("energy", new Potion(new StatusEffectInstance(NonStatusEffects.ENERGY, 800)));
     public static final Potion ENERGY_II = NonPotions.register("energy_ii", new Potion(new StatusEffectInstance(NonStatusEffects.ENERGY, 400, 1)));
@@ -54,6 +56,18 @@ public final class NonPotions {
     public static final Potion FERTILITY_INCREASER = NonPotions.register("fertility_increaser", new Potion(new StatusEffectInstance(NonStatusEffects.FERTILITY_INCREASER, 9600)));
     public static final Potion FERTILITY_INCREASER_II = NonPotions.register("fertility_increaser_ii", new Potion(new StatusEffectInstance(NonStatusEffects.FERTILITY_INCREASER, 4800, 1)));
     public static final Potion FERTILITY_INCREASER_LONG = NonPotions.register("fertility_increaser_long", new Potion(new StatusEffectInstance(NonStatusEffects.FERTILITY_INCREASER, 19200)));
+    public static final Potion FILLED = NonPotions.register("filled", new Potion(new StatusEffectInstance(NonStatusEffects.FILLED, SPECIAL_BASE_DURATION_TICKS)));
+    public static final Potion FILLED_III = NonPotions.register("filled_iii", new Potion(new StatusEffectInstance(NonStatusEffects.FILLED, SPECIAL_STRONG_DURATION_TICKS, 2)));
+    public static final Potion CHARGED = NonPotions.register("charged", new Potion(new StatusEffectInstance(NonStatusEffects.ENERGIZED, SPECIAL_BASE_DURATION_TICKS)));
+    public static final Potion CHARGED_III = NonPotions.register("charged_iii", new Potion(new StatusEffectInstance(NonStatusEffects.ENERGIZED, SPECIAL_STRONG_DURATION_TICKS, 2)));
+    public static final Potion APHRODISIAC = NonPotions.register("aphrodisiac", new Potion(
+        new StatusEffectInstance(NonStatusEffects.APHRODISIAC, SPECIAL_BASE_DURATION_TICKS),
+        new StatusEffectInstance(NonStatusEffects.ENERGIZED, SPECIAL_BASE_DURATION_TICKS)
+    ));
+    public static final Potion APHRODISIAC_III = NonPotions.register("aphrodisiac_iii", new Potion(
+        new StatusEffectInstance(NonStatusEffects.APHRODISIAC, SPECIAL_STRONG_DURATION_TICKS, 2),
+        new StatusEffectInstance(NonStatusEffects.ENERGIZED, SPECIAL_STRONG_DURATION_TICKS, 2)
+    ));
 
     private NonPotions() {
     }
@@ -105,4 +119,3 @@ public final class NonPotions {
         return (Potion)Registry.register((Registry)Registries.POTION, (Identifier)NeedsOfNature.id(path), (Object)potion);
     }
 }
-

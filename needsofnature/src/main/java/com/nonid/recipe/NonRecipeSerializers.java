@@ -15,6 +15,7 @@ import com.nonid.recipe.EnergyAugmenterRecipe;
 import com.nonid.recipe.EnergyDiminisherRecipe;
 import com.nonid.recipe.EnergyStabilizerRecipe;
 import com.nonid.recipe.FertileNectarRecipe;
+import com.nonid.recipe.AphrodisiacFoodRecipe;
 import net.minecraft.recipe.SpecialRecipeSerializer;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.registry.Registry;
@@ -26,6 +27,7 @@ public final class NonRecipeSerializers {
     public static final RecipeSerializer<EnergyDiminisherRecipe> ENERGY_DIMINISHER_RECIPE = (RecipeSerializer)Registry.register((Registry)Registries.RECIPE_SERIALIZER, (Identifier)NeedsOfNature.id("crafting_energy_diminisher"), (Object)new SpecialRecipeSerializer<>(EnergyDiminisherRecipe::new));
     public static final RecipeSerializer<EnergyStabilizerRecipe> ENERGY_STABILIZER_RECIPE = (RecipeSerializer)Registry.register((Registry)Registries.RECIPE_SERIALIZER, (Identifier)NeedsOfNature.id("crafting_energy_stabilizer"), (Object)new SpecialRecipeSerializer<>(EnergyStabilizerRecipe::new));
     public static final RecipeSerializer<FertileNectarRecipe> FERTILE_NECTAR_RECIPE = (RecipeSerializer)Registry.register((Registry)Registries.RECIPE_SERIALIZER, (Identifier)NeedsOfNature.id("crafting_fertile_nectar"), (Object)new SpecialRecipeSerializer<>(FertileNectarRecipe::new));
+    public static final RecipeSerializer<AphrodisiacFoodRecipe> APHRODISIAC_FOOD_RECIPE = Registry.register(Registries.RECIPE_SERIALIZER, NeedsOfNature.id("crafting_aphrodisiac_food"), new SpecialRecipeSerializer<>(AphrodisiacFoodRecipe::new));
 
     private NonRecipeSerializers() {
     }
@@ -33,4 +35,3 @@ public final class NonRecipeSerializers {
     public static void registerAll() {
     }
 }
-

@@ -157,6 +157,7 @@ import com.nonid.entity.HorseLiquidCollectorEntity;
 import com.nonid.entity.PregnancyEggEntity;
 import com.nonid.item.EnergyGainAdjustItem;
 import com.nonid.item.EnergyStabilizerItem;
+import com.nonid.item.AphrodisiacFoodItem;
 import com.nonid.item.HorseLiquidCollectorItem;
 import com.nonid.network.AccessoryShedStateS2CPayload;
 import com.nonid.network.AttackStateS2CPayload;
@@ -344,6 +345,8 @@ implements ModInitializer {
     public static final EntityType<PregnancyEggEntity> PREGNANCY_EGG_ENTITY_TYPE = (EntityType)Registry.register((Registry)Registries.ENTITY_TYPE, (Identifier)NeedsOfNature.id("pregnancy_egg"), (Object)EntityType.Builder.create(PregnancyEggEntity::new, (SpawnGroup)SpawnGroup.MISC).setDimensions(0.3f, 0.3f).build("needsofnature:pregnancy_egg"));
     public static final RegistryKey<Item> HORSE_LIQUID_COLLECTOR_KEY = RegistryKey.of((RegistryKey)Registries.ITEM.getKey(), (Identifier)NeedsOfNature.id("horse_liquid_collector"));
     public static final Item HORSE_LIQUID_COLLECTOR = NeedsOfNature.registerItem(HORSE_LIQUID_COLLECTOR_KEY, new HorseLiquidCollectorItem(new Item.Settings().maxCount(1)));
+    public static final RegistryKey<Item> APHRODISIAC_FOOD_KEY = RegistryKey.of(Registries.ITEM.getKey(), NeedsOfNature.id("aphrodisiac_food"));
+    public static final Item APHRODISIAC_FOOD = NeedsOfNature.registerItem(APHRODISIAC_FOOD_KEY, new AphrodisiacFoodItem());
     private static final Map<UUID, PlayerActiveInstance> ACTIVE_PLAYER_INSTANCES = new ConcurrentHashMap<UUID, PlayerActiveInstance>();
     private static final Map<RegistryKey<World>, ScanBudget> SCAN_BUDGETS = new ConcurrentHashMap<RegistryKey<World>, ScanBudget>();
     private static final Map<UUID, LoopAdvance> LOOP_ADVANCE = new ConcurrentHashMap<UUID, LoopAdvance>();
@@ -357,6 +360,11 @@ implements ModInitializer {
         NonItemSystem.addEntityLiquidAndStabilizersToItemGroup(entries, NeedsOfNature.getConfig());
         NonItemSystem.addNonPotionVariantsToItemGroup(entries);
     }).build());
+    private static final ItemGroup APHRODISIAC_FOOD_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, NeedsOfNature.id("aphrodisiac_foods"), FabricItemGroup.builder()
+        .displayName(Text.translatable("itemGroup.needsofnature.aphrodisiac_foods"))
+        .icon(() -> new ItemStack(APHRODISIAC_FOOD))
+        .entries((context, entries) -> entries.add(APHRODISIAC_FOOD))
+        .build());
     private static NonConfig CONFIG;
     private static final Map<UUID, PeakState> PEAK_STATES;
     private static final int PEAK_XP_CAP = 20;
@@ -5712,4 +5720,3 @@ implements ModInitializer {
     private record LoopAdvance(RegistryKey<World> worldKey, long nextTick) {
     }
 }
-

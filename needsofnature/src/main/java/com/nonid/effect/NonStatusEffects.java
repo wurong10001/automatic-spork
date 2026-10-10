@@ -13,6 +13,7 @@ import com.nonid.NeedsOfNature;
 import com.nonid.effect.EnergizedStatusEffect;
 import com.nonid.effect.EnergyReliefStatusEffect;
 import com.nonid.effect.EnergyStatusEffect;
+import com.nonid.effect.AphrodisiacStatusEffect;
 import com.nonid.effect.FertilityIncreaserStatusEffect;
 import com.nonid.effect.FilledStatusEffect;
 import com.nonid.effect.PregnantStatusEffect;
@@ -28,6 +29,7 @@ public final class NonStatusEffects {
     public static final StatusEffect FILLED = NonStatusEffects.register("filled", new FilledStatusEffect());
     public static final StatusEffect ENERGIZED = NonStatusEffects.register("energized", new EnergizedStatusEffect());
     public static final StatusEffect PREGNANT = NonStatusEffects.register("pregnant", new PregnantStatusEffect());
+    public static final StatusEffect APHRODISIAC = NonStatusEffects.register("aphrodisiac", new AphrodisiacStatusEffect());
 
     private NonStatusEffects() {
     }
@@ -39,4 +41,3 @@ public final class NonStatusEffects {
         return (StatusEffect)Registry.register((Registry)Registries.STATUS_EFFECT, (Identifier)NeedsOfNature.id(path), (Object)effect);
     }
 }
-
